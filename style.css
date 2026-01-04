@@ -1,0 +1,188 @@
+/* style.css */
+:root {
+    --primary-color: #2c3e50; /* 深蓝灰 */
+    --accent-color: #b7950b;  /* 暗金 (学术/北大风格) */
+    --bg-color: #fafafa;
+    --sidebar-bg: #f8f9fa;
+    --text-color: #333;
+    --link-color: #3498db;
+    --font-main: 'Lato', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+a { color: var(--link-color); text-decoration: none; transition: 0.2s; }
+a:hover { color: var(--accent-color); text-decoration: underline; }
+
+/* 布局容器 */
+.container {
+    display: flex;
+    max-width: 1150px;
+    width: 95%;
+    margin: 40px 0;
+    background: #fff;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 85vh;
+}
+
+/* 侧边栏 */
+.sidebar {
+    width: 260px;
+    background: var(--sidebar-bg);
+    padding: 40px 30px;
+    border-right: 1px solid #eaeaea;
+    flex-shrink: 0;
+}
+.profile-photo {
+    width: 150px; height: 150px; object-fit: cover;
+    border-radius: 50%; border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px;
+}
+.name {
+    font-family: var(--font-serif); font-size: 24px; font-weight: 700;
+    color: var(--primary-color); margin-bottom: 5px; line-height: 1.2;
+}
+.role { font-size: 13px; color: #666; margin-bottom: 20px; line-height: 1.5; }
+.nav-menu {
+    list-style: none; padding: 0; margin: 30px 0;
+    border-top: 1px solid #eee; border-bottom: 1px solid #eee;
+}
+.nav-menu li { margin: 0; }
+.nav-menu a {
+    display: block; padding: 12px 0; color: #555; font-weight: 600;
+    font-size: 15px; border-bottom: 1px solid transparent;
+}
+.nav-menu a:hover { color: var(--primary-color); padding-left: 5px; }
+.nav-menu a.active { color: var(--accent-color); pointer-events: none; }
+.contact-info { font-size: 12px; color: #777; margin-top: 20px; }
+.social-icons a { margin-right: 10px; font-size: 14px; color: var(--primary-color); }
+
+/* 主内容区 */
+.main-content { flex: 1; padding: 50px 60px; }
+
+h1 { font-family: var(--font-serif); font-size: 32px; color: var(--primary-color); margin-bottom: 10px; }
+h2 {
+    font-family: var(--font-serif); font-size: 22px; color: var(--primary-color);
+    border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; margin-top: 40px; margin-bottom: 20px;
+}
+h3 { font-size: 18px; color: #444; margin-top: 25px; margin-bottom: 10px; }
+
+p { font-size: 15px; line-height: 1.7; color: #444; margin-bottom: 15px; text-align: justify; }
+ul { padding-left: 20px; color: #444; font-size: 15px; line-height: 1.8; }
+
+/* 论文列表样式 */
+.pub-item { display: flex; gap: 20px; margin-bottom: 35px; }
+.pub-img-box { flex: 0 0 160px; }
+.pub-img { width: 100%; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.2s; }
+.pub-img:hover { transform: scale(1.03); }
+.pub-info { flex: 1; }
+.pub-title { font-weight: 700; font-size: 17px; color: #222; display: block; margin-bottom: 6px; }
+.pub-authors { font-size: 14px; color: #555; margin-bottom: 6px; }
+.pub-venue { font-style: italic; color: #666; font-size: 14px; margin-bottom: 8px; }
+.me { font-weight: bold; color: #000; text-decoration: underline; }
+.tag-btn { 
+    display: inline-block; padding: 2px 8px; border: 1px solid #ddd; 
+    border-radius: 4px; color: #666; font-size: 11px; margin-right: 5px; 
+}
+.tag-btn:hover { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+
+/* 时间轴与Grid */
+.timeline-row { display: flex; margin-bottom: 20px; }
+.timeline-year { width: 120px; font-weight: bold; color: #666; flex-shrink: 0; }
+.grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+.grid-card { background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 6px; transition: 0.2s; }
+.grid-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.08); transform: translateY(-2px); }
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .container { flex-direction: column; width: 100%; margin: 0; border-radius: 0; }
+    .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #eaeaea; text-align: center; box-sizing: border-box;}
+    .profile-photo { margin: 0 auto 20px auto; }
+    .main-content { padding: 30px 20px; }
+    .pub-item { flex-direction: column; }
+    .pub-img-box { width: 100%; max-width: 300px; margin-bottom: 10px; }
+    .timeline-row { flex-direction: column; }
+    .timeline-year { margin-bottom: 5px; }
+}
+
+
+
+/* --- 原有的样式保持不变 --- */
+.gallery-grid {
+    display: grid;
+    /* 纵向作品的灵活网格 */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px; /* 增加底部边距，与下面隔开 */
+}
+
+.gallery-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    /* 注意：这里不再需要 span-2 类了，因为我们将用新的容器来控制横向作品 */
+}
+
+.gallery-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.gallery-info {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.gallery-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.gallery-meta {
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* --- 新增：专门用于横向作品的 2x2 网格 --- */
+.horizontal-grid {
+    display: grid;
+    /* 强制分为固定的两列 */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* 手机端适配：在小屏幕上横向作品也变为单列排列 */
+@media (max-width: 768px) {
+    .horizontal-grid {
+        grid-template-columns: 1fr;
+    }
+}
