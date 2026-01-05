@@ -69,7 +69,12 @@ a:hover { color: var(--accent-color); text-decoration: underline; }
 .social-icons a { margin-right: 10px; font-size: 14px; color: var(--primary-color); }
 
 /* 主内容区 */
-.main-content { flex: 1; padding: 50px 60px; }
+/* 主内容区 */
+.main-content { 
+    flex: 1; 
+    padding: 50px 60px; 
+    min-width: 0; /* 【核心修复代码】加上这一行，解决 Grid 撑开宽度的问题 */
+}
 
 h1 { font-family: var(--font-serif); font-size: 32px; color: var(--primary-color); margin-bottom: 10px; }
 h2 {
